@@ -16,11 +16,7 @@ class Solution:
         count = 0
         temp = head
         length = calculate_length(head)
-        half = 0
-        if length%2 != 0:
-            half = (length//2)
-        else:
-            half = length//2
+        half = length//2
         while count != half:
             temp = temp.next
             count += 1
