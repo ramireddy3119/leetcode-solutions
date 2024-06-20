@@ -8,13 +8,13 @@ class Solution:
                     ballAtPlaced += 1
                     prevEle = i
             return ballAtPlaced >= m
-        sorted_list = sorted(position)
+        position.sort()
         low = 0
-        high = sorted_list[-1]
+        high = position[-1]
         ans = -1
         while low <= high:
             mid = (low + high)//2
-            if isOkAtDis(sorted_list,m,mid):
+            if isOkAtDis(position,m,mid):
                 ans = mid
                 low = mid + 1
             else:
