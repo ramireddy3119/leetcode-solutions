@@ -1,14 +1,13 @@
+from typing import List
+
 class Solution:
     def subsets(self, nums: List[int]) -> List[List[int]]:
-        n = len(nums)
-        arr = [[]]
-        for i in range(1<<n):
-            sub = []
-            for j in range(n):
-                if i&(1<<j)!=0:
-                    sub.append(nums[j])
-            if sub:
-                arr.append(sub)
-        return arr
+        def backtrack(start: int, path: List[int]):
+            res.append(path)
+            for i in range(start, len(nums)):
+               
+                backtrack(i + 1, path + [nums[i]])
 
-        
+        res = []
+        backtrack(0, [])
+        return res
