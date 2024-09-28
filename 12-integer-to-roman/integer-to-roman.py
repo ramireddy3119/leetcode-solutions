@@ -5,10 +5,10 @@ class Solution:
             50:"L", 40:"XL", 10 :"X", 9: "IX", 5:"V",4:"IV",1:"I"
         }
 
-        res = []
+        res = ""
         for value in mpp.keys():
             while num >= value:
-                res.append(mpp[value])
+                res += mpp[value]
                 num -= value
-        ans = ''.join(res)
-        return ans
+        
+        return res
