@@ -1,16 +1,17 @@
 class Solution:
     def rob(self, nums: List[int]) -> int:
-        memo = {}
-        def maxRob(idx):
-            if idx == 0:
-                return nums[idx]
-            if idx < 0:
-                return 0
-            if idx in memo:
-                return memo[idx]
-            pick = nums[idx] + maxRob(idx-2)
-            notpick = 0 + maxRob(idx-1)
-            memo[idx] = max(pick,notpick)
-            return memo[idx]
-        return maxRob(len(nums)-1)
+        n = len(nums)
         
+        if n == 0:
+            return 0
+        if n == 1:
+            return nums[0]
+
+        prev1 = nums[0]  
+        prev2 = max(nums[0], nums[1]) 
+
+        for i in range(2, n):
+            current = max(prev2, nums[i] + prev1)
+            prev1, prev2 = prev2, current  
+
+        return prev2
