@@ -1,15 +1,6 @@
 class Solution:
-    def arrayRankTransform(self, arr: List[int]) -> List[int]:
-        temp_arr = sorted(arr)
-        mpp = {}
-        count = 1
-        for num in temp_arr:
-            if num not in mpp:
-                mpp[num] = count
-                count += 1
-        res = []
-        for i in range(len(arr)):
-            res.append(mpp[arr[i]])
-        return res
-
-
+    def arrayRankTransform(self,arr):
+        sorted_arr = sorted(set(arr))
+        rank_dict = {val: rank + 1 for rank, val in enumerate(sorted_arr)}  
+    
+        return [rank_dict[val] for val in arr]  
