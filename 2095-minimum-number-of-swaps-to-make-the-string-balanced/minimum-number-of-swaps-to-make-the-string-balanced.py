@@ -8,6 +8,6 @@ class Solution:
             else:
                 imbalance -= 1
             max_imbalance = max(max_imbalance,imbalance)
-        return (max_imbalance+1)//2
+        return ceil(max_imbalance/2)
 
                 
