@@ -1,33 +1,39 @@
 class Solution:
-    def minimumSubarrayLength(self, nums: list[int], k: int) -> int:
+    def updateFreq(self, bitFreq, number, val):
+        for i in range(32):
+            if number & (1 << i):
+                bitFreq[i] += val
+
+    def getNumber(self, bitFreq):
+        number = 0
+        pow = 1
+        for i in range(32):
+            if bitFreq[i] > 0:
+                number += pow
+            pow *= 2
+        return number
+
+    def minimumSubarrayLength(self, nums, k):
         if k == 0:
             return 1
-        
-        precomp = [0] * 32
-        st = 0
-        ans = float('inf')
-        
-        for i in range(len(nums)):
-            val = 0
-            for j in range(32):
-                if nums[i] & (1 << j):
-                    precomp[j] += 1
-                if precomp[j]:
-                    val |= (1 << j)
-            
-            if val >= k:
-                ans = min(ans, i - st + 1)
-            
-            while val >= k:
-                val = 0
-                for j in range(32):
-                    if nums[st] & (1 << j):
-                        precomp[j] -= 1
-                    if precomp[j]:
-                        val |= (1 << j)
-                st += 1
-                
-                if val >= k:
-                    ans = min(ans, i - st + 1)
-        
-        return ans if ans != float('inf') else -1
+
+        n = len(nums)
+        shortest = float('inf')
+        left = 0
+        right = 0
+        currOR = 0
+        bitFreq = [0] * 32
+
+        while right < n:
+            self.updateFreq(bitFreq, nums[right], 1)
+            currOR |= nums[right]
+
+            # Resize window
+            while left <= right and currOR >= k:
+                shortest = min(shortest, right - left + 1)
+                self.updateFreq(bitFreq, nums[left], -1)
+                currOR = self.getNumber(bitFreq)
+                left += 1
+            right += 1
+
+        return -1 if shortest == float('inf') else shortest
