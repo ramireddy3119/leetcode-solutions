@@ -2,28 +2,17 @@ class Solution:
     def countGoodStrings(self,low, high, zero, one):
         MOD = 10**9 + 7
 
-        # Memoization dictionary
-        memo = {}
+        dp = [0] * (high + 1)
+        dp[0] = 1 
 
-        def count_ways(length):
-            # Base cases
-            if length == 0:
-                return 1
-            if length < 0:
-                return 0
+        for i in range(1, high + 1):
+            if i >= zero:
+                dp[i] = (dp[i] + dp[i - zero]) % MOD
+            if i >= one:
+                dp[i] = (dp[i] + dp[i - one]) % MOD
 
-            # Check if already computed
-            if length in memo:
-                return memo[length]
+        result = 0
+        for i in range(low, high + 1):
+            result = (result + dp[i]) % MOD
 
-            # Recursive calculation
-            result = (count_ways(length - zero) + count_ways(length - one)) % MOD
-            memo[length] = result
-            return result
-
-        # Sum the results for lengths in the range [low, high]
-        total_ways = 0
-        for length in range(low, high + 1):
-            total_ways = (total_ways + count_ways(length)) % MOD
-
-        return total_ways
+        return result
