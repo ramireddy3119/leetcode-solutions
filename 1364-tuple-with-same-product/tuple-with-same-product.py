@@ -11,8 +11,8 @@ class Solution:
                 else:
                     mpp[product] = 1
         count = 0
-        for i,j in mpp.items():
-            count += countTuple(j) * 8
+        for i in mpp.values():
+            count += countTuple(i) * 8
         return count
 
         
