@@ -10,18 +10,15 @@ class FindElements:
         self.hashSet = set()
         root.val = 0
         self.hashSet.add(0)
-        def dfs(root):
+        def dfs(root,val):
             if not root:
-                return 
-            if root.left:
-                self.hashSet.add(root.val * 2 + 1)
-                root.left.val = root.val * 2 + 1
-                dfs(root.left)
-            if root.right:
-                self.hashSet.add(root.val * 2 + 2)
-                root.right.val = root.val * 2 + 2
-                dfs(root.right)
-        dfs(root)
+                return
+            self.hashSet.add(val)
+            dfs(root.left,2*val+1)
+            dfs(root.right,2*val+2)
+            
+        dfs(root.left,1)
+        dfs(root.right,2)
     def find(self, target: int) -> bool:
         return True if target in self.hashSet else False
         
