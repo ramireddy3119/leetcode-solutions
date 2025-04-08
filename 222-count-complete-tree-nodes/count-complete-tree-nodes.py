@@ -4,15 +4,7 @@
 #         self.val = val
 #         self.left = left
 #         self.right = right
-class Solution:
-    def countNodes(self, root: Optional[TreeNode]) -> int:
-        def preorder(root):
-            if not root:
-                return
-            count[0] += 1
-            preorder(root.left)
-            preorder(root.right)
-        count = [0]
-        preorder(root)
-        return count[0]
+class Solution:  
+    def countNodes(self, root: Optional[TreeNode]) -> int:  
+        return 0 if not root else 1 + self.countNodes(root.left) + self.countNodes(root.right)  
         
