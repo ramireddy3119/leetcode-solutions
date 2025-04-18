@@ -1,6 +1,6 @@
 class Solution:
     def countAndSay(self, n: int) -> str:
-        def isRes(s):
+        def buildNextTerm(s):
             res = ""
             count = 1
             for i in range(1,len(s)):
@@ -9,9 +9,9 @@ class Solution:
                 else:
                     res += str(count) + s[i-1]
                     count = 1
-            res += str(count) + s[len(s)-1]
+            res += str(count) + s[-1]
             return res
         ans = "1"
         for i in range(1,n):
-            ans = isRes(ans)
+            ans = buildNextTerm(ans)
         return ans
