@@ -1,23 +1,13 @@
 class Solution:
     def romanToInt(self, s: str) -> int:
-        roman_numerals = {
-        'I': 1,
-        'V': 5,
-        'X': 10,
-        'L': 50,
-        'C': 100,
-        'D': 500,
-        'M': 1000
-        }
+        mpp = {'M':1000,'D':500,'C':100,'L':50,'X':10,'V':5,'I':1}
         num = 0
-        prev_value = 0
-        for i in s:
-            value = roman_numerals[i]
-            if value > prev_value:
-                num += value - 2 * prev_value
-            else:
-                num += value
-            prev_value = value
+        prev = 0
+        for i in s[::-1]:
+            if mpp[i] >= prev:
+                num += mpp[i]
+            else: num -= mpp[i]
+            prev = mpp[i]
         return num
-        
+
         
