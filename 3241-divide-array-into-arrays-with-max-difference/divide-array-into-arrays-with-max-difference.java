@@ -5,7 +5,7 @@ class Solution {
         int[][] res = new int[n][3]; 
         int row = 0;
         for(int i = 0; i < nums.length;i+=3){
-            if(i+2 >= nums.length) return new int[0][0];
+            // if(i+2 >= nums.length) return new int[0][0];
             int a = nums[i];
             int b = nums[i+1];
             int c = nums[i+2];
