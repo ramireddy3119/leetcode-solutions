@@ -1,7 +1,7 @@
 class Solution {
     public String makeFancyString(String s) {
         int count = 1;
-        StringBuffer st = new StringBuffer();
+        StringBuilder st = new StringBuilder();
         for(int i = 0; i < s.length();i++){
             if(i > 0){
                 if(s.charAt(i-1)==s.charAt(i)){
