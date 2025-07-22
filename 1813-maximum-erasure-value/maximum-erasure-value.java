@@ -13,11 +13,11 @@ class Solution {
                 currSum -= nums[left];
                 map.remove(nums[left]);
                 if(map.get(nums[left]) == map.get(nums[i])){
+                    map.put(nums[i],count-1);
                     count --;
                 }
                 left++;
             }
-            map.put(nums[i],count);
             maxSum = Math.max(maxSum,currSum);
         }
         return maxSum;
