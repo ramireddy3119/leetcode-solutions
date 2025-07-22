@@ -9,7 +9,6 @@ class Solution {
             currSum += nums[i];
             map.put(nums[i],map.getOrDefault(nums[i],0)+1);
             int count = map.get(nums[i]);
-            System.out.println(count);
             while(count > 1){
                 currSum -= nums[left];
                 map.remove(nums[left]);
@@ -19,9 +18,8 @@ class Solution {
                 }
                 left++;
             }
-            System.out.println(currSum);
             maxSum = Math.max(maxSum,currSum);
         }
-        return Math.max(maxSum,currSum);
+        return maxSum;
     }
 }
