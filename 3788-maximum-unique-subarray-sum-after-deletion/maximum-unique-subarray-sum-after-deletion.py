@@ -1,7 +1,8 @@
 class Solution:
     def maxSum(self, nums: List[int]) -> int:
-        if max(nums) < 0:
-            return max(nums)
+        num = max(nums)
+        if num < 0:
+            return num
         maxi = 0
         if len(nums) == 1:
             return nums[0]
