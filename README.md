@@ -17,6 +17,7 @@ The repository is organized by problem categories (e.g., Arrays, Strings, Dynami
 ## Array
 |  |
 | ------- |
+| [2141-maximum-running-time-of-n-computers](https://github.com/ramireddy3119/leetcode-solutions/tree/master/2141-maximum-running-time-of-n-computers) |
 | [3381-maximum-subarray-sum-with-length-divisible-by-k](https://github.com/ramireddy3119/leetcode-solutions/tree/master/3381-maximum-subarray-sum-with-length-divisible-by-k) |
 ## Hash Table
 |  |
@@ -26,4 +27,16 @@ The repository is organized by problem categories (e.g., Arrays, Strings, Dynami
 |  |
 | ------- |
 | [3381-maximum-subarray-sum-with-length-divisible-by-k](https://github.com/ramireddy3119/leetcode-solutions/tree/master/3381-maximum-subarray-sum-with-length-divisible-by-k) |
+## Binary Search
+|  |
+| ------- |
+| [2141-maximum-running-time-of-n-computers](https://github.com/ramireddy3119/leetcode-solutions/tree/master/2141-maximum-running-time-of-n-computers) |
+## Greedy
+|  |
+| ------- |
+| [2141-maximum-running-time-of-n-computers](https://github.com/ramireddy3119/leetcode-solutions/tree/master/2141-maximum-running-time-of-n-computers) |
+## Sorting
+|  |
+| ------- |
+| [2141-maximum-running-time-of-n-computers](https://github.com/ramireddy3119/leetcode-solutions/tree/master/2141-maximum-running-time-of-n-computers) |
 <!---LeetCode Topics End-->
